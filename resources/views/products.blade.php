@@ -16,8 +16,8 @@
                 </div>
                 <div class="px-5 py-3">
                     <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
-                    <span>€</span>
-                    <span id="Product-{{ $product->id }}" class="mt-2 text-gray-500">{{ $product->price }}</span>
+                    <span></span>
+                    <span id="Product-{{ $product->id }}" class="mt-2 text-gray-500">€{{ $product->price }}</span>
                     <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <input type="hidden" value="{{ $product->id }}" name="id">
@@ -30,7 +30,14 @@
                             <option value="large">Large</option>
                         </select>
                         <input type="number" value="1" min="1" name="quantity" class="w-16 rounded-lg px-3">
-                        <button class="px-[40px] py-[10px] text-white text-sm bg-blue-800 rounded">Add To Cart</button>
+
+                        <label for="toppings">Extra Toppings:</label></br>
+                        @foreach ($toppings as $topping )
+                        <input onchange="updatePriceTopping('Product-{{ $product->id }}', checked)" type="checkbox" value="{{ $topping->id }}"><label> 
+                            {{ $topping->name }} €{{ $topping->price }}</label></br>
+                        @endforeach
+
+                    </br> <button class="px-[40px] py-[10px] text-white text-sm bg-blue-800 rounded">Add To Cart</button>
                     </form>
                 </div>
                 
@@ -39,21 +46,3 @@
         </div>
     </div>
 </x-app-layout>
-
-<script>
-    function updatePrice(id, value, price) {
-        let newprice = 0.0;
-        if (value == 'medium') {
-            newprice = price
-        } else if (value == 'large') {
-            newprice = price * 1.2
-
-        } else 
-        {
-            newprice = price * 0.8
-
-        }
-        document.getElementById(id).innerHTML = newprice.toFixed(2)
-        document.getElementById("F"+id).value = newprice.toFixed(2)
-    }
-</script>
