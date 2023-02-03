@@ -13,21 +13,33 @@
                                 <p class="text-green-800">{{ $message }}</p>
                             </div>
                         @endif
-                          <h3 class="text-3xl font-bold">Checkout</h3>
+                          <h3 class="text-3xl font-bold">Uitchecken</h3>
                           <h1 class=" text-red-600 text-2xl font-bold">Bedankt voor uw bestelling bij StonksPizza!:)</h1>
 
                             <img class="img_pizza h-[200px] w-[200px]" src="https://www.panarottis.com/media/2005/untitled-design-6-3.png?anchor=center&mode=crop&width=637&height=639" />
 
 
-                        <div class="flex-1">
-                          <table class="w-full text-sm lg:text-base" cellspacing="0">
-                            <thead>
-                              <tr class="h-12 uppercase">
-                                <th class="hidden md:table-cell"></th>
-                                
-                              </tr>
-                            </thead>
-                            <tbody>
+                            <div class="flex flex-col">
+                                <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+                                  <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
+                                    <div class="overflow-hidden">
+                                      <table class="min-w-full">
+                                        <thead class="border-b">
+                                          <tr>
+                                            <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                                              Name
+                                            </th>
+                                            <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                                              Quantity
+                                            </th>
+                                            <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                                             Price
+                                            </th>
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                          
+                                       
                            
                                @foreach ($cartItems as $item)
                               <tr>
@@ -56,7 +68,12 @@
                                 </td>
                               </tr>
                               @endforeach
-                           
+                            </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
                                
                             </tbody>
                           </table>

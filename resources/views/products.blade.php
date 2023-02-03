@@ -1,11 +1,11 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Product List') }}
+            {{ __('Stonks Pizzas') }}
         </h2>
     </x-slot>
     <div class="container px-12 py-8 mx-auto">
-        <h3 class="text-2xl font-bold">Our Product</h3>
+        <h3 class="text-2xl font-bold">Onze Pizzas</h3>
         <div class="h-1 bg-blue-800 w-36"></div>
         <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             @foreach ($products as $product)
@@ -17,19 +17,18 @@
                 <div class="px-5 py-3">
                     <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
                     <span>€</span>
-                    <span id="Product-{{ $product->id }}" class="mt-2 text-gray-500">{{ $product->price }}</span></br>
+                    <span id="Product-{{ $product->id }}" class="mt-2 text-gray-500">{{ $product->price }}</span>
                     <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <input type="hidden" value="{{ $product->id }}" name="id">
                         <input type="hidden" value="{{ $product->name }}" name="name">
-                        <input type="hidden" value="{{ $product->price }}" name="price">
-                        <select onchange="updatePrice('Product-{{ $product->id }}', value, '{{ $product->price }} ')"
-                            name="size" class="w-56 mb-2 rounded">
+                        <input type="hidden" value="{{ $product->image }}"  name="image">
+                        <input id="FProduct-{{ $product->id }}"  type="hidden" value="{{ $product->price }}" name="price">
+                        <select onchange="updatePrice('Product-{{ $product->id }}', value, '{{ $product->price }} ')" name="size" id="" class="w-56 mb-2">
                             <option value="medium">Medium</option>
-                            <option value="small">Small</option>
+                            <option  value="small">Small</option>
                             <option value="large">Large</option>
                         </select>
-                        <input type="hidden" value="{{ $product->image }}"  name="image">
                         <input type="number" value="1" min="1" name="quantity" class="w-16 rounded-lg px-3">
                         <button class="px-[40px] py-[10px] text-white text-sm bg-blue-800 rounded">Add To Cart</button>
                     </form>
@@ -40,8 +39,8 @@
         </div>
     </div>
 </x-app-layout>
-<script type="text/javascript">
-    // Price calculation with size
+
+<script>
     function updatePrice(id, value, price) {
         let newprice = 0.0;
         if (value == 'medium') {
@@ -57,5 +56,4 @@
         document.getElementById(id).innerHTML = newprice.toFixed(2)
         document.getElementById("F"+id).value = newprice.toFixed(2)
     }
-
 </script>

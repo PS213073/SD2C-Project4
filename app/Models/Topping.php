@@ -5,19 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Product extends Model
+class Topping extends Model
 {
     use HasFactory;
 
     protected $fillable = [
         'name',
         'price',
-        'image',
-        'description',
     ];
 
-    public function toppings()
+    public function products()
     {
-        return $this->belongsToMany(Topping::class)->withPivot('price');
+        return $this->belongsToMany(Product::class);
     }
 }
