@@ -1,5 +1,5 @@
 
-//function price wise price
+//function size wise price
 function updatePrice(id, value, price) {
     let newprice = 0.0;
     if (value == 'medium') {

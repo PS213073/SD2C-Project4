@@ -16,6 +16,6 @@ class Topping extends Model
 
     public function products()
     {
-        return $this->belongsToMany(Product::class);
+        return $this->hasMany(Product::class);
     }
 }

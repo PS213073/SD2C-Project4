@@ -11,11 +11,11 @@ class ProductTopping extends Model
 
     public function product()
     {
-        return $this->belongsTo(Product::class);
+        return $this->belongsToMany(Product::class);
     }
 
     public function topping()
     {
-        return $this->belongsTo(Topping::class);
+        return $this->belongsToMany(Topping::class);
     }
 }

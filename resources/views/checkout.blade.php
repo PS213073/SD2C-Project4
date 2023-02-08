@@ -27,13 +27,13 @@
                                         <thead class="border-b">
                                           <tr>
                                             <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                                              Name
+                                              Naam
                                             </th>
                                             <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                                              Quantity
+                                              Aantal
                                             </th>
                                             <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                                             Price
+                                             Prijs
                                             </th>
                                           </tr>
                                         </thead>
@@ -78,15 +78,10 @@
                             </tbody>
                           </table>
                           <div class="relative right-[80%] left-0 top-7 text-lg font-bold">
-                           
-                          Totaal:<strong> € {{ Cart::getTotal() }}</strong>
+                           Totaal:<strong> € {{ Cart::getTotal() }}</strong>
                           </div>
-
                           <div class="flex mt-10">
                           <div>
-                      
-
-                          
                         </div>
                         </div>
                       </div>

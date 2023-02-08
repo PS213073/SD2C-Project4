@@ -3,7 +3,7 @@
 
     <x-slot name="header">
       <h2 class="font-semibold text-xl text-gray-800">
-        {{ __('Your Items') }}
+        {{ __('Jouw Items') }}
       </h2>
     </x-slot>
     <main class="my-8">
@@ -23,9 +23,9 @@
                     <th class="hidden md:table-cell"></th>
                     <th class="text-left">Naam</th>
                     <th class="ml-32">
-                      Hoeveelheid
+                      Aantal
                     </th>
-                    <th class="hidden text-right md:table-cell"> Subtotaal </th>
+                    <th class="hidden text-right md:table-cell"> Item prijs </th>
                     <th class="hidden text-right md:table-cell"> Verwijder </th>
                   </tr>
                 </thead>
@@ -76,7 +76,7 @@
               </table>
               <div class="relative right-0 left-[80%] top-7 text-lg font-bold">
   
-                Total:<strong> € {{ Cart::getTotal() }}</strong>
+                Totaal:<strong> € {{ Cart::getTotal() }}</strong>
               </div>
   
               <div class="flex mt-10">
@@ -95,7 +95,7 @@
                   </form>
                 </div>
                 <div>
-                  <form  method="GET">
+                  <form action="{{ route('cart.checkout') }} method="GET">
                     @csrf
                     <button class="px-6 py-2 text-sm rounded shadow text-red-100 bg-blue-500">Uitchecken</button>
                   </form>

@@ -18,6 +18,6 @@ class Product extends Model
 
     public function toppings()
     {
-        return $this->belongsToMany(Topping::class)->withPivot('price');
+        return $this->hasMany(Topping::class)->withPivot('price');
     }
 }
